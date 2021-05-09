@@ -1,0 +1,22 @@
+{% extends 'AdventureClubs/base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+<div class="container-fluid d-flex justify-content-center" style="margin-top: 200px;">
+    <form method="POST" enctype="multipart/form-data" class="jumbotron bg-secondary" >
+        <h1 class="text-white">Register Your Clubs here</h1>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-success" type="submit" value="Submit">
+        <div>
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    </form>
+
+</div>
+{% endblock %}

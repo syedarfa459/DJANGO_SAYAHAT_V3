@@ -1,0 +1,40 @@
+{% extends 'AdventureClubs/base.html' %}
+
+{% block body_block %}
+
+<div style="margin-top: 150px">
+
+        <section class="latest-posts">
+		<div class="row">
+				<div class="col text-center">
+					<div class="section_title">
+                            <h1 class="d-flex justify-content-center">Following are the ongoing events, you can book any</h1>
+                    </div>
+				</div>
+			</div>
+      <div class="container" >
+        <div class="row d-flex justify-content-center" style="padding:20px 20px 20px 20px;">
+      {%for fe in event%}
+          <div class="post col-xl-3 jumbotron" style="background-color: grey;box-shadow:2px 2px 2px 2px #6c757d;padding:10px 10px 10px 10px;margin:5px 5px 5px 5px; ">
+            <div class="post-thumbnail" ><a href="post.html"><img src="{{fe.image.url}}" alt="..." style="height:200px;width: 100%" class="img-fluid"></a></div>
+            <div class="post-details bg-white border rounded" style="padding: 10px 10px 10px 10px;margin-top: 10px">
+                <h3 class="h4 d-flex justify-content-center"><a href="#" class="myclass">{{fe.title}}</a></h3>
+                    <p class="text-muted">Related Club : {{fe.event_by}}</p>
+                    <p class="text-muted">Overview : {{fe.overview}}</p>
+                    <p class="text-muted">Event Start Date : <i class="text-success">{{fe.event_start_date}}</i></p>
+                    <p class="text-muted">Event End Date : <i class="text-danger">{{fe.event_end_date}}</i></p>
+                    <a href="https://api.whatsapp.com/send?phone={{fe.event_by.contact}}"><button class="btn btn-success"> Book using Whatsapp</button></a>
+
+
+
+            </div>
+          </div>
+
+      {%endfor%}
+        </div>
+      </div>
+    </section>
+</div>
+
+
+{% endblock %}

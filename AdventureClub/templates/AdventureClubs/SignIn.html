@@ -1,0 +1,30 @@
+{% extends 'AdventureClubs/base.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    <input value="Username:" type="text" name="username">-->
+<!--    <input value="Password:" type="password" name="password">-->
+<!--    <input value="Submit" type="submit">-->
+<!--    </form>-->
+         <div class="container jumbotron bg-secondary d-flex justify-content-center" style="margin-top: 200px">
+        <form method="post">
+            {% csrf_token %}
+<!--            {% if form.non_field_errors %}-->
+<!--            {% for error in form.non_field_errors %}-->
+<!--                <h4>{{error}}</h4>-->
+<!--            {% endfor %}-->
+<!--            {% endif %}-->
+            {{form|crispy}}
+            <input type="submit" class="btn btn-primary" value="Submit"><br><br>
+            <a class="text-white" href="{% url 'club:password_reset' %} "> Reset your password?</a> OR
+            <a class="text-white" href="{% url 'club:signUp' %} "> Create new account here</a>
+            {% if msg %}
+            <p class="alert alert-danger">{{msg}}</p>
+
+            {% endif %}
+
+        </form>
+         </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'AdventureClubs/base.html' %} {% load crispy_forms_tags %} {% block
+body_block %}
+<div
+  class="container-fluid d-flex justify-content-center"
+  style="margin-top: 200px"
+>
+  <form
+    name="image"
+    method="POST"
+    enctype="multipart/form-data"
+    class="jumbotron bg-secondary"
+  >
+    <h1 class="text-white">Create your Adventure Events here</h1>
+    {%csrf_token%}
+    <h6 class="text-white">Choose the club which is creating event</h6>
+
+    {%for c in clubs%}
+    <input type="radio" name="club" value="{{c}}" />
+    <label for="{{c}}">{{c}}</label><br />
+    {%endfor%} {{form|crispy}}
+    <input class="btn btn-success" type="submit" value="Create Event" />
+    <div>
+      {% if messages %} {% for message in messages %}
+      <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </form>
+  <br />
+</div>
+{% endblock %}

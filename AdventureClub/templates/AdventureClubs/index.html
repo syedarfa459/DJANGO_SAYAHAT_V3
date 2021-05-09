@@ -1,0 +1,500 @@
+{% extends 'AdventureClubs/base_for_index.html' %}
+{%load static%}
+{% block body_block %}
+	<div class="home">
+		<!-- Home Slider -->
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image: url({%static 'images/cover_1.jpg'%});"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Join Our Adventure Clubs</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({%static 'images/contact.jpg'%})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Join Our Adventure Clubs</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({%static 'images/about.jpg'%})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Join Our Adventure Clubs</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="home_page_nav">
+				<!-- <ul class="d-flex flex-column align-items-end justify-content-end">
+					<li><a href="#" data-scroll-to="#destinations">Offers<span>01</span></a></li>
+					<li><a href="#" data-scroll-to="#testimonials">Testimonials<span>02</span></a></li>
+					<li><a href="#" data-scroll-to="#news">Latest<span>03</span></a></li>
+				</ul> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Search -->
+
+	<div class="home_search ">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container ">
+						<div class="home_search_title">Search for your trip</div>
+						<div class="home_search_content ">
+							<form action="#" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-around">
+									<input type="text" class="search_input search_input_1" placeholder="Search any Adevnture event with City" name="city" required="required">
+									<button class="home_search_button">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Intro -->
+
+	<div class="intro">
+		<!-- <div class="intro_background" style="background-image:url(images/intro.png)"></div> -->
+		<div class="intro_background"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_container">
+						<div class="row">
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/beach.svg' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">Top Destinations</div>
+										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/wallet.svg' %}"  alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">The Best Prices</div>
+										<div class="intro_subtitle"><p>Sollicitudin mauris lobortis in.</p></div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/suitcase.svg' %}"  alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">Amazing Services</div>
+										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Featured Clubs -->
+    <section class="latest-posts">
+		<div class="row">
+				<div class="col text-center">
+					<div class="section_title"><h2>Featured Clubs</h2></div>
+				</div>
+			</div>
+      <div class="container" >
+        <div class="row d-flex justify-content-center" style="padding:20px 20px 20px 20px;">
+      {%for fc in FC%}
+          <div class="post col-md-3 jumbotron" style="background-color: grey;box-shadow:2px 2px 2px 2px #6c757d;padding:10px 10px 10px 10px;margin:5px 5px 5px 5px; ">
+            <div class="post-thumbnail" ><a href="post.html"><img src="{{fc.club_image.url}}" alt="..." style="height:200px;width: 100%" class="img-fluid"></a></div>
+            <div class="post-details bg-white border rounded" style="padding: 10px 10px 10px 10px;margin-top: 10px">
+                <h3 class="h4 d-flex justify-content-center"><a href="#" class="myclass">{{fc.club_name}}</a></h3>
+              <p class="text-muted">Address : {{fc.club_address}}</p>
+              <p class="text-muted">Tel. </i>{{fc.contact}}</p>
+              <p class="text-muted">Email : {{fc.email}}</p>
+              <p class="text-muted">City : {{fc.city}}</p>
+            </div>
+          </div>
+
+      {%endfor%}
+        </div>
+      </div>
+    </section>
+<!--featured events-->
+    <section class="latest-posts">
+		<div class="row">
+				<div class="col text-center">
+					<div class="section_title"><h2>Featured Events</h2></div>
+				</div>
+			</div>
+      <div class="container" >
+        <div class="row d-flex justify-content-center" style="padding:20px 20px 20px 20px;">
+      {%for fe in FE%}
+          <div class="post col-md-3 jumbotron" style="background-color: grey;box-shadow:2px 2px 2px 2px #6c757d;padding:10px 10px 10px 10px;margin:5px 5px 5px 5px; ">
+            <div class="post-thumbnail" ><a href="post.html"><img src="{{fe.image.url}}" alt="..." style="height:200px;width: 100%" class="img-fluid"></a></div>
+            <div class="post-details bg-white border rounded" style="padding: 10px 10px 10px 10px;margin-top: 10px">
+                <h3 class="h4 d-flex justify-content-center"><a href="#" class="myclass">{{fe.title}}</a></h3>
+					<p class="text-muted">Related Club : {{fe.event_by}}</p>
+					<p class="text-muted">Overview : {{fe.overview}}</p>
+					<p class="text-muted">Event Start Date : <i class="text-success">{{fe.event_start_date}}</i></p>
+					<p class="text-muted">Event End Date : <i class="text-danger">{{fe.event_end_date}}</i></p>
+					<a href="https://api.whatsapp.com/send?phone={{fe.event_by.contact}}"><button class="btn btn-success"> Book using Whatsapp</button></a>
+
+            </div>
+          </div>
+
+      {%endfor%}
+        </div>
+      </div>
+    </section>
+	<!-- Testimonials -->
+
+	<div class="testimonials" id="testimonials">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/testimonials.jpg' %}"  data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">simply amazing places</div>
+					<div class="section_title"><h2>Testimonials</h2></div>
+				</div>
+			</div>
+			<div class="row testimonials_row">
+				<div class="col">
+
+					<!-- Testimonials Slider -->
+					<div class="testimonials_slider_container">
+						<div class="owl-carousel owl-theme testimonials_slider">
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>john turner,</div>
+										<div>client</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>john turner,</div>
+										<div>client</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>john turner,</div>
+										<div>client</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="test_nav">
+			<ul class="d-flex flex-column align-items-end justify-content-end">
+				<li><a href="#">City Breaks Clients<span>01</span></a></li>
+				<li><a href="#">Cruises Clients<span>02</span></a></li>
+				<li><a href="#">All Inclusive Clients<span>03</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- News -->
+
+	<div class="news" id="news">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-8">
+					<div class="news_container">
+
+						<!-- News Post -->
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{% static 'images/news_1.jpg' %}" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div>02</div>
+									<div>june</div>
+								</div>
+								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+								<div class="news_post_category">
+									<ul>
+										<li><a href="#">lifestyle & travel</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- News Post -->
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{% static 'images/news_2.jpg' %}" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div>01</div>
+									<div>june</div>
+								</div>
+								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+								<div class="news_post_category">
+									<ul>
+										<li><a href="#">lifestyle & travel</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- News Post -->
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{% static 'images/news_3.jpg' %}" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div>29</div>
+									<div>may</div>
+								</div>
+								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+								<div class="news_post_category">
+									<ul>
+										<li><a href="#">lifestyle & travel</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>Vivamus massa.Tempor massa et laoreet malesuada. Aliquam nulla nisl, accumsan sit amet mattis.</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- News Sidebar -->
+				<div class="col-xl-4">
+					<div class="travello">
+						<div class="background_image" style="background-image:url(images/travello.jpg)"></div>
+						<div class="travello_content">
+							<div class="travello_content_inner">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="travello_container">
+							<a href="#">
+								<div class="d-flex flex-column align-items-center justify-content-end">
+									<span class="travello_title">Get a 20% Discount</span>
+									<span class="travello_subtitle">Buy Your Vacation Online Now</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/footer_1.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter">
+						<div class="newsletter_title_container text-center">
+							<div class="newsletter_title">Subscribe to our newsletter to get the latest trends & news</div>
+							<div class="newsletter_subtitle">Join our database NOW!</div>
+						</div>
+						<div class="newsletter_form_container">
+							<form action="#" class="newsletter_form d-flex flex-md-row flex-column align-items-start justify-content-between" id="newsletter_form">
+								<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
+									<div><input type="text" class="newsletter_input newsletter_input_name" id="newsletter_input_name" placeholder="Name" required="required"><div class="input_border"></div></div>
+									<div><input type="email" class="newsletter_input newsletter_input_email" id="newsletter_input_email" placeholder="Your e-mail" required="required"><div class="input_border"></div></div>
+								</div>
+								<div><button class="newsletter_button">subscribe</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row footer_contact_row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+
+						<!-- Footer Contact Item -->
+						<div class="col-xl-4 footer_contact_col">
+							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+								<div class="footer_contact_icon"><img src="{% static 'images/sign.svg' %}" alt=""></div>
+								<div class="footer_contact_title">give us a call</div>
+								<div class="footer_contact_list">
+									<ul>
+										<li>Office Landline: +44 5567 32 664 567</li>
+										<li>Mobile: +44 5567 89 3322 332</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- Footer Contact Item -->
+						<div class="col-xl-4 footer_contact_col">
+							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+								<div class="footer_contact_icon"><img src="images/trekking.svg" alt=""></div>
+								<div class="footer_contact_title">come & drop by</div>
+								<div class="footer_contact_list">
+									<ul style="max-width:190px">
+										<li>4124 Barnes Street, Sanford, FL 32771</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- Footer Contact Item -->
+						<div class="col-xl-4 footer_contact_col">
+							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+								<div class="footer_contact_icon"><img src="images/around.svg" alt=""></div>
+								<div class="footer_contact_title">send us a message</div>
+								<div class="footer_contact_list">
+									<ul>
+										<li>youremail@gmail.com</li>
+										<li>Office@yourbusinessname.com</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </div>
+	</footer>
+</div>
+
+
+
+
+
+
+
+
+<!--<h1>Siyahat Homepage</h1>-->
+<!--{% if messages %}-->
+<!--<ul class="messages">-->
+<!--    {% for message in messages %}-->
+<!--    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>-->
+<!--    {% endfor %}-->
+<!--</ul>-->
+<!--{% endif %}-->
+
+<!--<h1>Sort Clubs city Wise</h1>-->
+<!--{%for c in city%}-->
+<!--{%for city in c.values%}-->
+<!--<form method="POST">-->
+<!--    {%csrf_token%}-->
+<!--    <button name="city" value="{{city}}">{{city}}</button>-->
+
+<!--</form>-->
+<!--{%endfor%}-->
+<!--{%endfor%}-->
+
+<!--{%for obj in club%}-->
+<!--  <h1> Club name: {{obj.club_name}}</h1>-->
+<!--   <h1>  Contact:{{obj.contact}}</h1>-->
+<!--    <h1> Email:{{obj.email}}</h1>-->
+<!--    <h1> City:{{obj.city}}</h1>-->
+<!--{%endfor%}-->
+
+
+<!--<div class="jumbotron">-->
+<!--<h1>Featured clubs</h1>-->
+<!--    {%for fc in FC%}-->
+<!--    <h6>{{fc.club_name}}</h6>-->
+<!--    <h6>{{fc.contact}}</h6>-->
+<!--    <h6>{{fc.club_address}}</h6>-->
+<!--    <hr>-->
+<!--    <hr>-->
+<!--    {%endfor%}-->
+<!--</div>-->
+
+<!--<div class="jumbotron">-->
+<!--<h1>Featured Events</h1>-->
+<!--    {%for fe in FE%}-->
+<!--&lt;!&ndash;    <img src="{{fe.image.url}}" height="100px" width="100px">&ndash;&gt;-->
+<!--&lt;!&ndash;    <h6>{{fe.event_by}}</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h6>{{fe.overview}}</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;    <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;    <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;    &ndash;&gt;-->
+<!--    <div class="card" style="width: 18rem;">-->
+<!--  <img class="card-img-top" src="{{fe.image.url}}" alt="Card image cap">-->
+<!--  <div class="card-body">-->
+<!--    <h5 class="card-title">{{fe.event_by}}</h5>-->
+<!--    <a href="#" class="btn btn-primary">fe.overview</a>-->
+<!--  </div>-->
+<!--</div>-->
+<!--    {%endfor%}-->
+
+
+
+<!--</div>-->
+{% endblock %}
